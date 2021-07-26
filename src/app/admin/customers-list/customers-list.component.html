@@ -1,0 +1,74 @@
+<app-shared-navbar [heading]="heading" [typeOfUser]="typeOfUser"></app-shared-navbar>
+
+
+<form  [formGroup]="checkForm" (ngSubmit)="onSubmit()" class=" col-6 rounded-5 shadow-5-strong p-5" style="height: 15px;">
+    <div class="row">
+      <div class="col-4">
+        <select  formControlName="optionChoosed" class="mdb-select md-form form-control" style="margin-top: 0%;padding-top: 0%;margin-bottom: 3%;padding-bottom: 10%;">
+          <option *ngFor="let option of availableOptions"  [ngValue]="option">{{option}}</option>  
+        </select>
+      </div>
+      <div class="col-4 form-outline mb-4">
+          <input type="email"
+          class="form-control"
+          placeholder="Enter a Valid Value"
+          formControlName="value"
+          />
+      </div>
+      <div class="col-4">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!checkForm.valid" >submit</button>
+      </div>
+    </div>
+  </form>
+
+
+
+
+<div *ngIf="!nonZero" class="div" style="margin:200px 100px 100px 600px">
+  <p>No Bookings :(</p>
+</div>
+<div  *ngIf="nonZero" class="div">
+  <div class="card z-depth-5" style="margin: 50px 25px 0px 25px;">
+      <div class="card-body  ">
+          <div class="row" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+              <div class="col-1">Booking Id</div>
+              <div class="col-2">        Name</div>
+              <div class="col-2">Email</div>
+              <div class="col-1">Phone No</div>
+              <div class="col-1">From Date</div>
+              <div class="col-1">To Date</div>
+              <div class="col-1">Room Type</div>
+              <div class="col-1">Extra Beds</div>
+              <div class="col-1">Cost</div>
+              <div class="col-1">Action</div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="card z-depth-1" style="margin: 0px 25px 25px 25px;">
+      
+      <div class="card-body  ">
+        <div *ngFor="let booking of bookings; let i = index"  style="margin-left: 0%;font-size: 14px;">
+            <div class="row">
+              <div class="col-1">{{booking.bookingid}}</div>
+              <div class="col-2">{{booking.name}}</div>
+              <div class="col-2">{{booking.username}}</div>
+              <div class="col-1">{{booking.phNum}}</div>
+              <div class="col-1">{{booking.fromDate}}</div>
+              <div class="col-1">{{booking.toDate}}</div>
+              <div class="col-1">{{booking.typeOfRoom}}</div>
+              <div class="col-1">{{booking.noBeds}}</div>
+              <div class="col-1">{{booking.totalCost}}</div>
+              <div class="col-1">
+                <button type="button" class="btn btn-primary btn-block "  style="height:45px;"
+                (click)="onCustomerDetails(i)" >
+                    <p style="font-size: 10px;">Customer Details</p> 
+                </button>
+              </div>
+            </div>
+            <hr>
+        </div>
+      </div>
+  </div>
+</div>

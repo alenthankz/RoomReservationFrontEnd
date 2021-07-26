@@ -1,0 +1,156 @@
+  <!--Main Navigation-->
+  <header>
+    <style>
+      #intro {
+        background-image: url(../../../assets/signupimage.jpg);
+        height: 100vh;
+      }
+
+      /* Height for devices larger than 576px */
+      @media (min-width: 992px) {
+        #intro {
+          margin-top: -58.59px;
+        }
+      }
+
+      .navbar .nav-link {
+        color: #fff !important;
+      }
+    </style>
+
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-2-strong">
+      <div class="mask d-flex align-items-center h-100" style="background-color: rgba(37, 31, 31, 0.8);">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-md-8">
+              
+              <form  [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="bg-white  rounded-5 shadow-5-strong p-5">
+              <div class="form-outline mb-4 text-center ">
+                  <h4 class="text-info" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                  SignUp</h4>
+              </div>
+
+               <div class="row">
+                <div class="col-6">
+                  <div >
+                    <label class="form-label">Name</label>
+                    <input type="name"
+                    class="form-control"
+                    formControlName="name" />
+                    <span class="help-black" style="font-size: 12px;"
+                    *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">
+                    please enter a valid name</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div >
+                    <label class="form-label">Email Address</label>
+                    <input type="email"
+                    class="form-control"
+                    formControlName="username" />
+                    <span class="help-black" style="font-size: 12px;"
+                    *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+                    please enter a valid email</span>
+                  </div>
+               </div>
+              </div>
+                
+              <div class="row">
+                <div class="col-6">
+                  <div >
+                    <label class="form-label">Phone Number</label>
+                    <input type="number"
+                    class="form-control"
+                    formControlName="phNum" />
+                    <span class="help-black" style="font-size: 12px;"
+                    *ngIf="!signupForm.get('phNum').valid && signupForm.get('phNum').touched">
+                    please enter a valid number</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div >
+                    <label  class="form-label">Date Of Birth</label>
+                    <input type="date" id="start" name="trip-start"
+                      min="1950-01-01" max="2050-12-31"
+                      class="form-control"
+                      [max]=today
+                      formControlName="dob"
+                      pattern="\d{4}-\d{2}-\d{2}"    />
+                      <span class="help-black" style="font-size: 12px;"
+                      *ngIf="!signupForm.get('dob').valid && signupForm.get('dob').touched">
+                      please enter a valid Date</span>
+
+                    <!-- <label class="form-label">Date Of Birth</label>
+                    <input type="dob"
+                    class="form-control"
+                    formControlName="dob" /> -->
+                  </div>
+               </div>
+              </div>  
+               
+              
+              <div class="row">
+                <div class="col-6">
+
+                  <label class="form-label" >ID Proof</label>
+                  <select  formControlName="proofType" class="mdb-select md-form form-control" style="margin-top: 0%;padding-top: 0%;margin-bottom: 3%;padding-bottom: 10%;">
+                    <option *ngFor="let option of availableOptions"  [ngValue]="option">{{option}}</option>  
+                  </select>
+
+                </div>
+                <div class="col-6">
+                  <div >
+                    <label class="form-label">ID Proof Number</label>
+                    <input type="email"
+                    class="form-control"
+                    formControlName="proofValue" />
+                    <span class="help-black" style="font-size: 12px;"
+                    *ngIf="!signupForm.get('proofValue').valid && signupForm.get('proofValue').touched">
+                    please enter an alphanumeric ID Proof Number</span>
+                    
+                  </div>
+               </div>
+              </div>
+               
+
+                <!-- Password input -->
+                <div  style="margin-top: 2%;padding-top:1%" >
+                  <label class="form-label">Password</label>
+                  <input type="password"  
+                  class="form-control"
+                  formControlName="password"  />
+                  <span class="help-black" style="font-size: 12px;"
+                  *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                  please enter an alphanumeric password of min 8 characters</span>
+                </div>
+                <!-- Submit button -->
+                <div class="row">
+                <div class="col-6">
+                <button type="cancel" class="btn btn-primary btn-block" routerLink="/welcome/start" >Cancel</button>
+                </div>
+                <div class="col-6">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="!signupForm.valid" >Sign Up</button>
+                </div>
+                </div>
+
+                <div *ngIf="error" class="alert alert-danger row">
+                  <div class="col-10">
+                    <p>{{error}}</p>
+                  </div>
+                  <div class="col-2">
+                    <button type="button" class="btn" style="border-color: red;" (click)="onHandleError()">ok</button>
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!--Main Navigation-->
+
+  

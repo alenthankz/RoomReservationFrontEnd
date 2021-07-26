@@ -1,0 +1,87 @@
+  <!--Main Navigation-->
+  <header>
+    <style>
+      #intro {
+        background-image: url(../../../assets/login1.png);
+        height: 100vh;
+      }
+
+      /* Height for devices larger than 576px */
+      @media (min-width: 992px) {
+        #intro {
+          margin-top: -58.59px;
+        }
+      }
+
+      .navbar .nav-link {
+        color: #fff !important;
+      }
+    </style>
+
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-1-strong">
+      <div class="mask d-flex align-items-center h-100" style="background-color: rgba(37, 31, 31, 0.8);" >
+        <div class="container ">
+          <div class="row justify-content-center  ">
+            <div class="col-xl-5 col-md-8 ">
+             
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="bg-white   rounded-5 shadow-5-strong p-5">
+                <div class="form-outline mb-4 text-center ">
+                  <h3 class="text-info" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                    {{usedby}} Login</h3>
+                </div>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label">Email Address</label>
+                  <input type="email"
+                  class="form-control"
+                  formControlName="username"
+                  />
+                  <span class="help-black" style="font-size: 12px;"
+                  *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                  please enter a valid email</span>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label">Password</label>
+                  <input type="password"  
+                  class="form-control"
+                  formControlName="password"  />
+                  <span class="help-black" style="font-size: 12px;"
+                  *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                  please enter an alphanumeric password of min 8 characters</span>
+                </div>
+                <div class="div" style="font-size: 15px;" *ngIf="usedby=='Admin'">Email : admin@mymail.com | Password: admin1234</div>
+              
+                <!-- Submit button -->
+                <div class="row">
+                <div class="col-6">
+                <button type="cancel" class="btn btn-primary btn-block" routerLink="/welcome/start" >Cancel</button>
+                </div>
+                <div class="col-6">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid" >Login</button>
+                </div>
+                </div>
+
+                <div *ngIf="error" class="alert alert-danger row">
+                  <div class="col-10">
+                    <p>{{error}}</p>
+                  </div>
+                  <div class="col-2">
+                    <button type="button" class="btn" style="border-color: red;" (click)="onHandleError()">ok</button>
+                  </div>
+                </div>
+
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!--Main Navigation-->
+
+  

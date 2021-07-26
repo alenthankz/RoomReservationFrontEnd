@@ -1,0 +1,31 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue-gradient" [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+        <a class="brand "><img src="../../assets/wiprologo.png" style="max-height: 70px;padding-left: 30px;"></a>
+        <a class="navbar-brand " routerLink="/welcome/start" routerLinkActive="active" style="margin-left: 10px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> Room Reservation</a>
+    </mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/welcome/admin/login" routerLinkActive="active"> Admin Login</a>
+          <!-- <mdb-icon fas icon="envelope"></mdb-icon> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/welcome/user/login" routerLinkActive="active">User Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect routerLink="/welcome/signup" routerLinkActive="active">Sign Up</a>
+        </li>
+        
+      </ul>
+      <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->

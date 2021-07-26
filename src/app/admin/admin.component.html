@@ -1,0 +1,5 @@
+<router-outlet *ngIf=!error></router-outlet>
+<app-shared-navbar *ngIf="error" [heading]="heading" [typeOfUser]="typeOfUser"></app-shared-navbar>
+<div  *ngIf="error" class="alert alert-danger" style="margin: 5% 5% 5% 5%;">
+    <p class=" animated bounce infinite text-danger"  >Error  : {{error}}</p>
+</div>

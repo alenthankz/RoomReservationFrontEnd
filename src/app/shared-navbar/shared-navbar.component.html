@@ -1,0 +1,26 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue-gradient hoverable  z-depth-2" [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+        <p class="navbar-brand "  style="margin-left: 10px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> {{heading}}</p>
+    </mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-top: 5%;">
+          <p class="white-text" >Welcome {{usedbynow}}</p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect (click)="onLogout()">Logout</a>
+        </li>
+        
+      </ul>
+      <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->

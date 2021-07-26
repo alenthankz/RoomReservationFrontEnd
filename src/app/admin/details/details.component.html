@@ -1,0 +1,94 @@
+<app-shared-navbar [heading]="heading" [typeOfUser]="typeOfUser"></app-shared-navbar>
+
+<div  *ngIf="error" class="alert alert-danger" style="margin: 5% 5% 5% 5%;">
+    <p class=" animated bounce infinite text-danger"  >{{error}}</p>
+</div>
+
+<div *ngIf="!error" class="card z-depth-5" style="margin: 50px 150px 150px 150px;height:470px">
+    <div class="card-body  ">
+
+
+        <div class="row" style="margin-top: 3%;"></div>
+        <div class="row">
+            <div class="col-4">Customer Name </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2" >:</div>
+                    <div class="col-10">{{customer.name}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 3%;"></div>
+        <div class="row">
+            <div class="col-4">Email ID </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2" >:</div>
+                    <div class="col-10">{{customer.username}}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 3%;"></div>
+        <div class="row">
+            <div class="col-4">Date Of Birth</div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2" >:</div>
+                    <div class="col-10">{{customer.dob}}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 3%;"></div>
+        <div class="row">
+            <div class="col-4">Phone Number  </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2" >:</div>
+                    <div class="col-10">{{customer.phNum}}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 3%;"></div>
+        <div class="row">
+            <div class="col-4">ID Proof Type</div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2" >:</div>
+                    <div class="col-10">{{customer.proofType}}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 3%;"></div>
+        <div class="row">
+            <div class="col-4">ID Proof Number</div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2" >:</div>
+                    <div class="col-10">{{customer.proofValue}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 5%;"></div>
+        <div class="row">
+            <div class="col-2">
+                <button type="button" class="btn btn-primary btn-block "  style="height: 40px;"
+                (click)="onBack()" >
+                    <p  >Back</p> 
+                </button>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-7"></div>
+            
+        </div>
+    </div>
+</div>

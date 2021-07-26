@@ -1,0 +1,150 @@
+<div class="div"style="margin-top:1.5%;margin-right:2%" >
+    <app-shared-navbar [heading]="typeOfRoom" [typeOfUser]="typeOfUser"></app-shared-navbar>
+</div>
+<div class="row" style="margin-top: 2%;margin-bottom: 0%;padding-bottom: 0%;">
+    <div class="col-3">
+        <div class="container" style="width: 250px;height: 125px; margin-bottom: 19%;">
+            <mdb-card>
+                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img [src]="img1" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+                </div>
+            </mdb-card>
+        </div>
+        <div class="container" style="width: 250px;height: 125px;  margin-bottom: 19%;">
+            <mdb-card>
+                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img [src]="img2" height:100px alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+                </div>
+            </mdb-card>
+        </div>
+        <div class="container" style="width: 250px;height: 125px; margin-bottom: 3%;">
+            <mdb-card>
+                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img [src]="img3" height:10  alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask"></div>
+                </a>
+                </div>
+            </mdb-card>
+        </div>
+    </div>
+    
+    
+    
+    <mdb-card class=" z-depth-1" style="width: 800px;;margin-top: 1.5%;">
+        <mdb-card-body>
+            <div class="col-9" style="padding-left: 5%;padding-top: 5%;">
+                <form (ngSubmit)="onSubmit()" #f="ngForm">
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form1Example1">Number of Extra Beds</label>
+                      <input 
+                      type="number" pattern="^[0-9]" title='Only Number' min="1" step="1"
+                      class="form-control"
+                      name="noBeds"
+                      ngModel
+                      [ngModel]=0 />
+                    </div>
+                  
+                    <!-- Password input -->
+                    <div class="row form-outline mb-4">
+                        <div class="col-6" >
+                            <label class="form-label">Check-in Date</label>
+                            <input type="date" id="start" name="trip-start"
+                                [min]=today
+                                class="form-control"
+                                name="fromDate"
+                                ngModel
+                                required 
+                                pattern="\d{4}-\d{2}-\d{2}">
+                                <!-- <span class="help-black" style="font-size: 12px;"
+                                *ngIf="!f.get('fromDate').valid && f.get('fromDate').touched">
+                                please enter a valid Date</span> -->
+                                <!-- <label class="form-label">Check-in Date</label>
+                                <input type="email" 
+                                class="form-control"
+                                name="fromDate"
+                                ngModel
+                                required /> -->
+                        </div>
+                        <div class="col-6">
+                            
+                            <label class="form-label">Check-out Date</label>
+                            <input type="date" id="start" name="trip-start"
+                                value="YYYY-MM-DD"
+                                [min]=today
+                                class="form-control"
+                                name="toDate"
+                                ngModel
+                                required 
+                                pattern="\d{4}-\d{2}-\d{2}">
+
+                                <!-- <label class="form-label" >Check-out Date</label>
+                                <input 
+                                type="email"  
+                                class="form-control"
+                                name="toDate"
+                                ngModel 
+                                required/> -->
+                        </div>
+                    </div>
+        
+                    <div *ngIf="!totalCost" class=" form-outline mb-4">
+                        <p class="text-danger" >Minimum Duration is 1 day</p>
+                    </div>
+        
+                    <div *ngIf="totalCost" class=" form-outline mb-4">
+                        <p  >Amount to be paid :  {{totalCost==-1? "Enter Details and Click Calculate" : totalCost}}</p>
+                    </div>
+        
+                    <!-- Submit button -->
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="button" class="btn btn-danger btn-block" (click)="onClear()">clear</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" [disabled]="!f.valid" class="btn btn-primary btn-block" (click)="onCalculate()">calculate</button>
+                        </div>
+                        <div *ngIf="valid" class="col-4">
+                            <button type="submit" [disabled]="!f.valid"  class="btn btn-success btn-block">Book Room</button>
+                        </div>
+                    </div>
+        
+                    <div *ngIf="booked" class="alert alert-success row" style="margin-top: 5%;">
+                        <div class="col-10">
+                            <p   >Successfully Booked !!!</p>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn" style="border-color: green;" (click)="onHandleSuccess()">ok</button>
+                        </div>
+                    </div>
+                    <div  *ngIf="error" class="alert alert-danger row" style="margin-top: 5%;">
+                        <div class="col-10">
+                            <p class=" animated bounce infinite text-danger"  >Error in booking  : {{error}}</p>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn" style="border-color: red;" (click)="onHandleError()">ok</button>
+                        </div>
+                    </div>
+                    
+                  </form>
+            </div>
+        </mdb-card-body>
+      </mdb-card>
+
+
+
+    
+
+
+</div>
+
